@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <com.liangzilixueha.liangzipage.LiangziCircle
+        android:id="@+id/liangziCircle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:circle_color="#FF5757"
@@ -79,5 +80,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cl" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="前往"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

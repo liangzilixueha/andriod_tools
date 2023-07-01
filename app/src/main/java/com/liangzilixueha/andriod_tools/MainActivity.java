@@ -6,11 +6,15 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.liangzilixueha.andriod_tools.databinding.ActivityMainBinding;
@@ -30,12 +34,33 @@ public class MainActivity extends AppCompatActivity {
     private List<View> mViews;  //存放视图的数组
     private View view1, view2, view3;
     private PagerAdapter mPagerAdapter;//适配器
+    public Button btn;
+    public static TextView tv;
+    public static Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message message) {
+            switch (message.what) {
+                case 1:
+                    tv.setText("修改过了");
+                    break;
+                default:
+                    break;
+            }
+            return false;
+        }
+    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        btn = binding.btn;
+        tv = binding.textView;
+        btn.setOnClickListener(v -> {
+            Intent intent = new Intent(this, SecondActivity.class);
+            startActivity(intent);
+        });
 
 
         LayoutInflater inflater = getLayoutInflater();//获取布局对象管理
